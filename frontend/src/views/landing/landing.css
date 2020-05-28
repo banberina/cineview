@@ -1,0 +1,127 @@
+.view-holder{
+    min-height: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 150px;
+}
+
+.featured-movies{
+    font-size: 38px;
+    color: white;
+    font-weight: 700;
+    text-align: start;
+    padding-left: 45px !important;
+}
+
+.card-parent{
+    margin-top: 75px;
+}
+
+.day-picker-holder{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.movie-info-card{
+    min-height: 100px !important;
+    color: white;
+    background-color: #171941;
+    padding: 15px;
+    margin-top: 22.5px;
+    border: 0.25px solid rgba(255,255,255,0.25);
+    border-radius: 5px;
+}
+
+.poster-wrapper{
+    border: 0.5px solid rgba(255,255,255,0.25);
+    border-radius: 5px;
+    padding: 3px;
+}
+.poster-wrapper:hover{
+    opacity: 0.75;
+    cursor: pointer;
+}
+.timetable-badge{
+    min-width: 75px;
+    font-size: 14px !important;
+    padding-left: 10px  !important; 
+    padding-top: 5px  !important;
+    margin-top: 7px !important;
+    font-weight: 100 !important;
+    background-color: rgba(0,0,0,0.5) !important;
+}
+.timetable-badge:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.timetable-holder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+.movie-info-holder{
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-direction: column;
+}
+.movie-title{
+    font-size: 24px;
+    font-weight: 600;
+    padding: 12px;
+    padding-bottom: 0px !important;
+}
+.movie-genre{
+}
+.movie-actors{
+    padding-left: 6px;
+    margin-top: 5px;
+    font-size: 12px !important;
+}
+.movie-description{
+    padding-left: 6px;
+    padding-top: 6px;
+    font-size: 12px !important;
+    text-align: start;
+}
+.movie-rating{
+    font-size: 32px;
+    font-weight: 300;
+    margin-left: 15px;
+}
+.movie-rated-as{
+    margin-left: 10px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 100;
+}
+.buy-now-icon{
+}
+@media only screen and (max-width: 768px) {
+    .timetable-holder{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        flex-direction: column;
+    }
+    .movie-info-holder{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        flex-direction: r;
+    }
+    .timetable-badge{
+        font-size: 14px !important;
+        margin-top: 7px !important;
+        font-weight: 100 !important;
+        width: 80%;
+        background-color: rgba(0,0,0,0.25) !important;
+    }
+  }
