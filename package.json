@@ -1,38 +1,26 @@
 {
-  "name": "frontend",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "ajv": "^6.8.1",
-    "node-sass": "^4.14.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
-    "reactstrap": "^8.4.1"
-  },
+  "name": "cineview",
+  "version": "1.0.0",
+  "description": "###### Summary A UI/UX overhaul of the local cinema websites. Due to their outdated nature, we’ve noticed an opportunity to enhance these websites. They are rich in data and audience, but lacking in presentation and we seek to improve that with this project. The project seeks to provide all the existing functionalities of these websites: - Movie list and overview - Ticket purchase - Special events - Contact info",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "frontend": "cd frontend && npm start",
+    "backend": "cd backend && nodemon index.js",
+    "dev": "concurrently --kill-others \"npm run backend\" \"npm run frontend\"",
+    "install": "cd backend && npm install && cd ../frontend && npm install",
+    "start": "cd frontend && npm run build && cd ../backend && node index.js",
+    "generate": "cd backend && node generate.js",
+    "heroku-postbuild": "cd frontend && npm install --only=dev && npm install && npm run build"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/banberina/cineview.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/banberina/cineview/issues"
+  },
+  "homepage": "https://github.com/banberina/cineview#readme"
 }
