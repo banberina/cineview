@@ -108,7 +108,7 @@ function BuyTickets(state) {
                     </Col>
                     <Col md={12}>
                     <div className="movie-description">
-                            {state.location.state.storyline}
+                            {state.location.state.storyline} 
                         </div>
                     </Col>
                 </Row></div>) }
