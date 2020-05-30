@@ -78,7 +78,7 @@ function LandingScreen() {
                         <Badge color="info" className="timetable-badge">13:00</Badge>
                         <Badge color="info" className="timetable-badge">17:45</Badge>
                         <Badge color="info" className="timetable-badge">22:00</Badge>
-                        <Button className="btn-round btn-icon buy-now-icon" color="success">
+                        <Button className="btn-round btn-icon buy-now-icon" color="success" href="/tickets">
                             <i className="tim-icons icon-gift-2" />
                         </Button>
                     </Col>

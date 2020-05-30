@@ -80,6 +80,7 @@ class TopNavbar extends React.Component {
       collapseOut: ""
     });
   };
+
   render() {
     return (
       <Navbar
@@ -121,7 +122,7 @@ class TopNavbar extends React.Component {
               <Row>
                 <Col className="collapse-brand" xs="6">
                   <a href="#pablo" onClick={e => e.preventDefault()}>
-                  [•] Cineview 
+                    [•] Cineview
                   </a>
                 </Col>
                 <Col className="collapse-close text-right" xs="6">
@@ -138,28 +139,23 @@ class TopNavbar extends React.Component {
             <Nav navbar>
               <NavItem>
                 <NavLink tag={Link} to="/home">
-                <i className="tim-icons icon-heart-2" />Movies
+                  <i className="tim-icons icon-heart-2" />Movies
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink tag={Link} to="/about">
-                <i className="tim-icons icon-satisfied" />About
+                  <i className="tim-icons icon-satisfied" />About
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink tag={Link} to="/contact">
-                <i className="tim-icons icon-chat-33" />Contact Us
+                  <i className="tim-icons icon-chat-33" />Contact Us
                 </NavLink>
               </NavItem>
               <NavItem>
-                <Button
-                  className="nav-link d-none d-lg-block"
-                  color="info"
-                  target="_blank"
-                  href=""
-                >
-                  <i className="tim-icons icon-coins" /> Buy Tickets
-                </Button>
+                <NavLink>                 
+                  <i className="tim-icons icon-coins" />Buy tickets
+                </NavLink>
               </NavItem>
             </Nav>
           </Collapse>

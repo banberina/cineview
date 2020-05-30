@@ -9,6 +9,7 @@ import "./assets/css/nucleo-icons.css";
 import TopNavbar from './components/navbar/navbar';
 import ContactScreen from './views/contact/contact';
 import AboutScreen from './views/about/about';
+import BuyTickets from './views/tickets/BuyTickets'
 
 class App extends React.Component {
 
@@ -18,10 +19,11 @@ class App extends React.Component {
       <Router>
         <TopNavbar></TopNavbar>
         <Switch>
-          <Route path = "/home" component = {LandingScreen}/>
-          <Route path = "/contact" component = {ContactScreen}/>
-          <Route path = "/about" component = {AboutScreen}/>
-          <Route path = "/" component = {LandingScreen}/>
+          <Route exact path = "/" component = {LandingScreen}/>
+          <Route exact path = "/home" component = {LandingScreen}/>
+          <Route exact path = "/contact" component = {ContactScreen}/>
+          <Route exact path = "/about" component = {AboutScreen}/>
+          <Route exact path = "/tickets" component = {BuyTickets}/>
         </Switch>
       </Router>
       </div>
