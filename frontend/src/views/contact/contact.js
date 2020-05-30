@@ -6,18 +6,57 @@ import {
   FormGroup,
   Label,
   Input,
-  FormText
+  FormText,
+  Alert
 } from 'reactstrap';
 import inTheatre from "../../movies/json/movies-in-theaters.json"
 import './contact.css'
 
 function ContactScreen() {
-
+    const [clicked, setClicked] = useState(0)
     const [data, setData] = useState({
         email : "",
         name : "",
         message : ""
     })
+    const [errors, setErrors] = useState({
+        email : "",
+        name : "",
+        message : ""
+    })
+
+    const validateForm = async () => {
+        var error = {
+            email : "",
+            name : "",
+            message : ""
+        }
+        if(data.email.length == 0 ){
+            error.email = "You must provide your email"
+        } else {
+            error.email = ""
+        }
+        if(!validateEmail(data.email)){
+            error.email = "You must provide a valid email"
+        } 
+        if(data.name.length == 0 ){
+            error.name = "You must provide your name"
+        }else {
+            error.name = ""
+        }
+        if(data.message.length == 0 ){
+            error.message = "You must say something !"
+        }else {
+            error.message = ""
+        }
+        await setErrors(error)
+        setClicked(clicked + 1)
+    }
+
+    function validateEmail (email) {
+        const regexp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return regexp.test(email);
+      }
 
     useEffect(() => { 
     },[]);
@@ -48,11 +87,12 @@ function ContactScreen() {
                     <Col md={6}>
                         {/* <div className="do-you">Do you?</div> */}
                         <form>
-                            <FormGroup>
                                 <Row>
-                                    <Col>
+                                <Col md={6} sm = {12}>
+                            <FormGroup className={ (errors.name == "" ? "" : "has-danger")}>
                                 <Label for="contactName" 
-                                className="contact-label">Name</Label>
+                                className="contact-label">Name
+                                 <span className="error">{(errors.name == "" ? "" : errors.name)}</span></Label>
                                 <Input
                                 type="name"
                                 name="name"
@@ -60,10 +100,13 @@ function ContactScreen() {
                                 placeholder="Your Name"
                                 onChange={handleInputField}
                                 />
-                                    </Col>
-                                    <Col>
+                            </FormGroup>
+                                </Col>
+                                <Col md={6} sm = {12}>
+                            <FormGroup className={ (errors.email == "" ? "" : "has-danger")}>
                                 <Label for="contactEmail" 
-                                className="contact-label">E-mail</Label>
+                                className="contact-label">E-mail
+                                 <span className="error">{(errors.email == "" ? "" : errors.email)}</span></Label>
                                 <Input
                                 type="email"
                                 name="email"
@@ -71,12 +114,16 @@ function ContactScreen() {
                                 placeholder="Your Email"
                                 autoComplete="off"
                                 onChange={handleInputField}
-                                /></Col>
+                                />
+                                </FormGroup>
+                                </Col>
                                 </Row>
                                 <Row>
                                     <Col>
+                                <FormGroup className={ (errors.message == "" ? "" : "has-danger")}>
                                 <Label for="contactMessage" 
-                                className="contact-label">Message</Label>
+                                className="contact-label">Message
+                                 <span className="error">{(errors.message == "" ? "" : errors.message)}</span></Label>
                                 <Input
                                 type="message"
                                 name="message"
@@ -85,13 +132,16 @@ function ContactScreen() {
                                 autoComplete="off"
                                 onChange={handleInputField}
                                 />
+                                </FormGroup>
                                 </Col>
                                 </Row>
-                            </FormGroup>
-                            
-                            <Button color="info" type="submit" className="submit-btn">
+                            <Button color="info" type="button" className="submit-btn"
+                            onClick={validateForm} >
                                 Submit
                             </Button>
+                            <div className="submit-success" style={{color: "white"}}>
+                            {((errors.message == "" && errors.name == "" && errors.email == "" && clicked > 0 )? "Great! We'll get in touch soon :D" : " ")}
+                            </div>
                             </form>
                     </Col>
                 </Row>

@@ -4,14 +4,26 @@ import {
   Card, CardHeader, CardText, CardBody,
   CardTitle, CardSubtitle, Button, DropdownToggle, DropdownMenu, DropdownItem, UncontrolledDropdown
 } from 'reactstrap';
+import{ Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { UncontrolledCarousel } from "reactstrap";
 import bannerImage from "../../assets/img/banner.jpg"
 import inTheatre from "../../movies/json/movies-in-theaters.json"
 import './landing.css'
+import {Redirect} from 'react-router-dom'
 
 function LandingScreen() {
 
     const [currentDay, setCurrentDay] = useState(1)
+    const [buyClicked, setBuyClicked] = useState(false)
+    const [openModal, setOpenModal] = useState(false)
+    const [modalData, setModalData] = useState({
+        title : "",
+        description: "",
+        image: "",
+        rating: "",
+        genre: [],
+        actors: ""
+    })
 
     useEffect(() => { 
         inTheatre.sort(function() {
@@ -51,7 +63,18 @@ function LandingScreen() {
             <Col md={12} className="movie-info-card">
                 <Row>
                     <Col md={2}>
-                    <img className="poster-wrapper" src={movie.posterurl} alt="Logo" />
+                    <img className="img-fluid rounded shadow-lg" style={{maxHeight:"250px"}}
+                    src={movie.posterurl} alt="Logo"  onClick={() => {
+                        setOpenModal(true)
+                        setModalData({
+                            title : movie.title,
+                            description: movie.storyline,
+                            image: movie.posterurl,
+                            rating: movie.imdbRating,
+                            genre: movie.genres,
+                            actors: movie.actors
+                        })
+                    }}/>
                     </Col>
                     <Col md = {8} className="movie-info-holder">
                         <div className="movie-title">{movie.title}</div>
@@ -78,8 +101,9 @@ function LandingScreen() {
                         <Badge color="info" className="timetable-badge">13:00</Badge>
                         <Badge color="info" className="timetable-badge">17:45</Badge>
                         <Badge color="info" className="timetable-badge">22:00</Badge>
-                        <Button className="btn-round btn-icon buy-now-icon" color="success" href="/tickets">
-                            <i className="tim-icons icon-gift-2" />
+                        <Button className="btn-round btn-icon buy-now-icon" color="info" onClick={() => setBuyClicked(!buyClicked)}>
+                            { buyClicked ? (<Redirect to={{ pathname: "/tickets", state: movie}}/>) :(null)}
+                            <i className="tim-icons icon-coins" />
                         </Button>
                     </Col>
                 </Row>
@@ -141,6 +165,50 @@ function LandingScreen() {
                     </Col>
                 </Row>
             </Container>
+
+            <Modal isOpen={openModal} toggle={()=> setOpenModal(!openModal)} backdrop={true} className="movie-modal">
+                <ModalBody>
+                <Row>
+                    <Col md={12}
+                    style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center"
+                    }}>
+                    <img className="img-fluid rounded shadow-lg" src={modalData.image} alt="Logo"  style={{maxHeight: "250px"}}/>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col md = {12} className="movie-info-holder">
+                        <div className="movie-title">{modalData.title}</div>
+                        <div className="movie-genre">
+                            <Badge color="simple">{modalData.genre[0]}</Badge>
+                            <Badge color="simple">{modalData.genre[1]}</Badge>
+                        </div>
+                    </Col>
+                    <Col md={12}>
+                    <div className="movie-description">
+                            {modalData.description}
+                        </div>
+                    </Col>
+                    <Col md={6}>
+                    </Col>
+                    <Col md={6}>
+                        <div className="movie-rating" style={{float: "left"}}>
+                            <i className="tim-icons icon-shape-star" /> {modalData.rating == "" ? ("None") : (modalData.rating)}
+                        </div>
+                    </Col>
+                </Row>
+                </ModalBody>
+                {/* <ModalFooter>
+                    <Button color="secondary" onClick={() => setOpenModal(false)}>
+                        Close
+                    </Button>
+                    <Button color="primary">
+                        Save changes
+                    </Button>
+                </ModalFooter> */}
+            </Modal>
         </div>
         </>
     )

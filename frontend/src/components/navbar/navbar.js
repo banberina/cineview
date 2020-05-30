@@ -152,11 +152,6 @@ class TopNavbar extends React.Component {
                   <i className="tim-icons icon-chat-33" />Contact Us
                 </NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink>                 
-                  <i className="tim-icons icon-coins" />Buy tickets
-                </NavLink>
-              </NavItem>
             </Nav>
           </Collapse>
         </Container>
