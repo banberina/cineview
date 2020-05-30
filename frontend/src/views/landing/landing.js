@@ -67,7 +67,9 @@ function LandingScreen() {
                         </div>
                         <div className="movie-rating">
                             <i className="tim-icons icon-shape-star" /> {movie.imdbRating == "" ? ("None") : (movie.imdbRating)}
-                            <span className="movie-rated-as">{movie.contentRating == "" ? ("No limitations") : ("Rated " + movie.contentRating)}</span>
+                            <span className="movie-rated-as">{movie.contentRating == "" ? 
+                                                        ("No limitations") : ("Rated " + movie.contentRating)}
+                                    </span>
                         </div>
                     </Col>
                     <Col md={2} className="timetable-holder">

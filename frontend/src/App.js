@@ -7,6 +7,7 @@ import {BrowserRouter as Router,
 import "./assets/scss/blk-design-system-react.scss";
 import "./assets/css/nucleo-icons.css";
 import TopNavbar from './components/navbar/navbar';
+import ContactScreen from './views/contact/contact';
 // import TrackrNavbar  from './components/navbar/navbar';
 
 class App extends React.Component {
@@ -18,6 +19,7 @@ class App extends React.Component {
         <TopNavbar></TopNavbar>
         <Switch>
           <Route path = "/home" component = {LandingScreen}/>
+          <Route path = "/contact" component = {ContactScreen}/>
           <Route path = "/" component = {LandingScreen}/>
         </Switch>
       </Router>

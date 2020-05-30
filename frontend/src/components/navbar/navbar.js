@@ -147,7 +147,7 @@ class TopNavbar extends React.Component {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} to="/home">
+                <NavLink tag={Link} to="/contact">
                 <i className="tim-icons icon-chat-33" />Contact Us
                 </NavLink>
               </NavItem>

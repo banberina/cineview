@@ -1,0 +1,27 @@
+.top-text{
+    color: white;
+    font-size: 18px;
+    opacity: 1;
+}
+.large-text{
+    color: white;
+    font-size: 64px;
+    font-weight: 1000;
+}
+
+.large-text:hover{
+    transform: scale(1.1);
+}
+.large-text:hover + .top-text{
+    color: red;
+
+    transform: scale(0.8);
+}
+
+.contact-label{
+    color: white;
+    font-size: 16px;
+    margin-top: 15px;
+    float: left;
+    padding-left: 15px;
+}
