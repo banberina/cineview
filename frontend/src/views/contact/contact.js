@@ -43,45 +43,48 @@ function ContactScreen() {
                     <Col md={6}>
                         <div className="large-text">Do you?</div>
                         <form>
-          <FormGroup>
-              <Row>
-                  <Col>
-            <Label for="exampleEmail" className="contact-label">Name</Label>
-            <Input
-              type="email"
-              name="email"
-              id="exampleEmail"
-              placeholder="Enter email"
-            />
-                  </Col>
-                  <Col>
-            <Label for="examplePassword" className="contact-label">E-mail</Label>
-            <Input
-              type="password"
-              name="password"
-              id="examplePassword"
-              placeholder="Password"
-              autoComplete="off"
-            /></Col>
-              </Row>
-              <Row>
-                  <Col>
-            <Label for="examplePassword" className="contact-label">Message</Label>
-            <Input
-              type="password"
-              name="password"
-              id="examplePassword"
-              placeholder="Password"
-              autoComplete="off"
-            />
-            </Col>
-              </Row>
-          </FormGroup>
-         
-          <Button color="info" type="submit">
-            Submit
-          </Button>
-        </form>
+                            <FormGroup>
+                                <Row>
+                                    <Col>
+                                <Label for="contactName" 
+                                className="contact-label">Name</Label>
+                                <Input
+                                type="name"
+                                name="name"
+                                id="contactName"
+                                placeholder="Your Name"
+                                />
+                                    </Col>
+                                    <Col>
+                                <Label for="contactEmail" 
+                                className="contact-label">E-mail</Label>
+                                <Input
+                                type="email"
+                                name="email"
+                                id="contactEmail"
+                                placeholder="Your Email"
+                                autoComplete="off"
+                                /></Col>
+                                </Row>
+                                <Row>
+                                    <Col>
+                                <Label for="contactMessage" 
+                                className="contact-label">Message</Label>
+                                <Input
+                                type="message"
+                                name="message"
+                                id="contactMessage"
+                                placeholder="Tell us more!"
+                                autoComplete="off"
+                                />
+                                </Col>
+                                </Row>
+                            </FormGroup>
+                            
+                            <Button color="info" type="submit">
+                                Submit
+                            </Button>
+                            </form>
                     </Col>
                 </Row>
             </Container>
