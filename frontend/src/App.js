@@ -8,7 +8,7 @@ import "./assets/scss/blk-design-system-react.scss";
 import "./assets/css/nucleo-icons.css";
 import TopNavbar from './components/navbar/navbar';
 import ContactScreen from './views/contact/contact';
-// import TrackrNavbar  from './components/navbar/navbar';
+import AboutScreen from './views/about/about';
 
 class App extends React.Component {
 
@@ -20,6 +20,7 @@ class App extends React.Component {
         <Switch>
           <Route path = "/home" component = {LandingScreen}/>
           <Route path = "/contact" component = {ContactScreen}/>
+          <Route path = "/about" component = {AboutScreen}/>
           <Route path = "/" component = {LandingScreen}/>
         </Switch>
       </Router>

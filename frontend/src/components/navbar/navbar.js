@@ -142,7 +142,7 @@ class TopNavbar extends React.Component {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} to="/home">
+                <NavLink tag={Link} to="/about">
                 <i className="tim-icons icon-satisfied" />About
                 </NavLink>
               </NavItem>

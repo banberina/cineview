@@ -13,13 +13,18 @@ import './contact.css'
 
 function ContactScreen() {
 
-    const [currentDay, setCurrentDay] = useState(1)
+    const [data, setData] = useState({
+        email : "",
+        name : "",
+        message : ""
+    })
 
     useEffect(() => { 
-        inTheatre.sort(function() {
-            return .5 - Math.random();
-          });
-    },[currentDay]);
+    },[]);
+
+    const handleInputField = useCallback(event => {
+        setData({...data, [event.target.name] : event.target.value})
+      })
 
     return (
         <>
@@ -41,7 +46,7 @@ function ContactScreen() {
                         </div>
                     </Col>
                     <Col md={6}>
-                        <div className="large-text">Do you?</div>
+                        {/* <div className="do-you">Do you?</div> */}
                         <form>
                             <FormGroup>
                                 <Row>
@@ -53,6 +58,7 @@ function ContactScreen() {
                                 name="name"
                                 id="contactName"
                                 placeholder="Your Name"
+                                onChange={handleInputField}
                                 />
                                     </Col>
                                     <Col>
@@ -64,6 +70,7 @@ function ContactScreen() {
                                 id="contactEmail"
                                 placeholder="Your Email"
                                 autoComplete="off"
+                                onChange={handleInputField}
                                 /></Col>
                                 </Row>
                                 <Row>
@@ -76,15 +83,40 @@ function ContactScreen() {
                                 id="contactMessage"
                                 placeholder="Tell us more!"
                                 autoComplete="off"
+                                onChange={handleInputField}
                                 />
                                 </Col>
                                 </Row>
                             </FormGroup>
                             
-                            <Button color="info" type="submit">
+                            <Button color="info" type="submit" className="submit-btn">
                                 Submit
                             </Button>
                             </form>
+                    </Col>
+                </Row>
+                <Row className="footer-custom">
+                    <Col style={{textAlign:"left"}}>
+                        <div>
+                        <span style={{color:"white"}}>Francuske </span>revolucije bb
+                        </div>
+                        <div>
+                        <span style={{color:"white"}}>+387 </span>63 727 727
+                        </div>
+                        <div>
+                        <span style={{color:"white"}}>+387 </span>33 555 432
+                        </div>
+                        <div>
+                        <span style={{color:"white"}}>info</span>@cineview.ba
+                        </div>
+                    </Col>
+                    <Col style={{textAlign:"right", color: "white"}}>
+                    <div>
+                        Made with <i className="tim-icons icon-heart-2" />
+                    </div>
+                    <div>
+                        Berina Bandic & Hamdija Radoncic
+                    </div>
                     </Col>
                 </Row>
             </Container>

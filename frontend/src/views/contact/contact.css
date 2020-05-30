@@ -2,20 +2,32 @@
     color: white;
     font-size: 18px;
     opacity: 1;
+    transition-duration: 0.5s;
 }
 .large-text{
     color: white;
-    font-size: 64px;
+    font-size: 48px;
     font-weight: 1000;
+    transition-duration: 0.5s;
 }
 
 .large-text:hover{
     transform: scale(1.1);
+    transition-duration: 0.5s;
 }
 .large-text:hover + .top-text{
-    color: red;
-
+    transition-duration: 0.5s;
     transform: scale(0.8);
+}
+.do-you{
+    color: white;
+    font-size: 64px;
+    font-weight: 1000;
+    transition-duration: 0.5s;
+}
+.submit-btn:hover .do-you{
+    transform: scale(1.1);
+    transition-duration: 0.5s;
 }
 
 .contact-label{
@@ -24,4 +36,19 @@
     margin-top: 15px;
     float: left;
     padding-left: 15px;
+}
+
+.footer-custom{
+    margin-top: 75px;
+    position: relative;
+    height: 175px;
+    bottom: 0px;
+    padding: 24px;
+    border-top: solid 0.5px rgba(255,255,255,0.75);
+}
+
+@media only screen and (max-width: 768px) {
+    .footer-custom{
+        margin-top: 24px;
+    }
 }
